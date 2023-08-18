@@ -1,0 +1,19 @@
+DEBUG=0
+
+PWD=$(shell pwd)
+
+.PHONY: all
+.PHONY: libSocketClientMgr.so
+.PHONY: libSocketServerMgr.so
+
+all:
+	$(info please specific target)
+	$(info |target list)
+	$(info |---libSocketClientMgr.so)
+	$(info |---libSocketServerMgr.so)
+
+libSocketClientMgr.so:
+	$(MAKE) VER=$(VERSION) DEBUG=$(DEBUG)
+
+libSocketServerMgr.so:
+	cd $(PWD)/../socket_engine_server && $(MAKE) VER=$(VERSION) DEBUG=$(DEBUG)
